@@ -88,7 +88,7 @@ buttons: []
        // printf("%f\n", data.left_right);
         fscanf(fp, "%s %s", coordinate1, coordinate2);
 
-        printf("%s %s\n ", coordinate1, coordinate2 );
+        //printf("%s %s\n ", coordinate1, coordinate2 );
 
         fscanf(fp, "%s %s", buttons, braces);
         fscanf(fp, "%s", part);
