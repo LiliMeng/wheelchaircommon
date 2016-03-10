@@ -51,12 +51,13 @@ p_eulAzimuth= pchip(timestampT, eulAzimuthT, newTimeInterval);
 p_eulPitch = pchip(timestampT, eulPitch, newTimeInterval);
 p_eulBank = pchip(timestampT, eulBank, newTimeInterval);
 
+if 0
 
 figure
 
 plot(newTimeInterval, p_xPosition, 'ro', newTimeInterval, p_xPosition, 'r', timestamp, xPosition, '-.', timestamp, xPosition,'b*')
 t=title('Visual odometry X position with the timestamp');
-le=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(18~20Hz)');
+le=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(20~27Hz)');
 set(le, 'FontSize', 16);
 set(t, 'FontSize', 20);
 xl=xlabel('timestamp');
@@ -68,7 +69,7 @@ figure
 
 plot(newTimeInterval, p_yPosition, 'ro', newTimeInterval, p_yPosition, 'r', timestamp, yPosition, '-.', timestamp, yPosition,'b*')
 t1=title('Visual odometry Y position with the timestamp');
-le1=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(18~20Hz)');
+le1=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(20~27Hz)');
 set(le1, 'FontSize', 16);
 set(t1, 'FontSize', 20);
 xl1=xlabel('timestamp');
@@ -80,7 +81,7 @@ figure
 
 plot(newTimeInterval, p_zPosition, 'ro', newTimeInterval, p_zPosition, 'r', timestamp, zPosition, '-.', timestamp, zPosition,'b*')
 t2=title('Visual odometry Z position with the timestamp');
-le2=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(18~20Hz)');
+le2=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(20~27Hz)');
 set(le2, 'FontSize', 16);
 set(t2, 'FontSize', 20);
 xl2=xlabel('timestamp');
@@ -92,7 +93,7 @@ figure
 
 plot(newTimeInterval, p_eulAzimuth, 'ro', newTimeInterval, p_eulAzimuth, 'r', timestamp, eulAzimuth, '-.', timestamp, eulAzimuth,'b*')
 t3=title('Visual odometry Azimuth Eular angle with the timestamp');
-le3=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(18~20Hz)');
+le3=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(20~27Hz)');
 set(le3, 'FontSize', 16);
 set(t3, 'FontSize', 20);
 xl3=xlabel('timestamp');
@@ -105,7 +106,7 @@ figure
 
 plot(newTimeInterval, p_eulPitch, 'ro', newTimeInterval, p_eulPitch, 'r', timestamp, eulPitch, '-.', timestamp, eulPitch,'b*')
 t4=title('Visual odometry Pitch Eular angle with the timestamp');
-le4=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(18~20Hz)');
+le4=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(20~27Hz)');
 set(le4, 'FontSize', 16);
 set(t4, 'FontSize', 20);
 xl4=xlabel('timestamp');
@@ -117,7 +118,7 @@ figure
 
 plot(newTimeInterval, p_eulBank, 'ro', newTimeInterval, p_eulBank, 'r', timestamp, eulBank, '-.', timestamp, eulBank,'b*')
 t5=title('Visual odometry Bank Eular angle with the timestamp');
-le5=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(18~20Hz)');
+le5=legend('pchip interpolation data(16Hz)','pchip curve','real data curve','real data(20~27Hz)');
 set(le5, 'FontSize', 16);
 set(t5, 'FontSize', 20);
 xl5=xlabel('timestamp');
@@ -131,7 +132,7 @@ figure
 
 plot(p_xPosition, p_yPosition,'ro', xPosition,yPosition, 'b*')
 t6=title('visual odometry 2D position');
-le6=legend('pchip interpolation data(16Hz)','real data(18~20Hz)');
+le6=legend('pchip interpolation data(16Hz)','real data(20~27Hz)');
 set(le6, 'FontSize', 16);
 set(t6, 'FontSize', 20);
 xl6=xlabel('x axis');
@@ -149,6 +150,8 @@ for j=1:N2
     fprintf(fileID2, '%s %s %s %s %s\n',num2str(newTimeInterval(:,j)),num2str(p_xPosition(:,j)), num2str(p_yPosition(:,j)), num2str(p_zPosition(:,j)),num2str(p_eulAzimuth(:,j)));
 end
 
+
+
 fclose(fileID);
 fclose(fileID2);
-
+end
