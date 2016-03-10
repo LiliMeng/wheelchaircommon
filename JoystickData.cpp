@@ -10,7 +10,8 @@ using namespace std;
 
 typedef struct JoystickData {
 
-    int timestamp;
+    int secs;
+    int nsecs;
     double forward_backward;
     double left_right;
 
@@ -71,9 +72,9 @@ buttons: []
         fscanf(fp, "%s %d", seq_s, &seq);
         fscanf(fp, "%s", stamp_s);
         fscanf(fp, "%s", secs_s);
-        fscanf(fp, "%d", &data.timestamp);
+        fscanf(fp, "%d", &data.secs);
         fscanf(fp, "%s", nsecs_s);
-        fscanf(fp, "%d", &nsecs);
+        fscanf(fp, "%d", &data.nsecs);
         fscanf(fp, "%s", frame_id);
         fscanf(fp, "%s", chair_joy);
        // printf("%s \n", chair_joy);
@@ -112,7 +113,7 @@ buttons: []
             }
         }
 
-        fout<<data.timestamp<<"   "<<coord1<<"   "<<coord2<<endl;
+        fout<<data.nsecs<<"   "<<coord1<<"   "<<coord2<<endl;
         joystickVec.push_back(data);
 
         i++;
