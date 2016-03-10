@@ -25,17 +25,6 @@ int main() {
    fp = fopen("/home/lili/Journal/Joy.txt", "r");
    assert(fp);
 
-   /*
-   header:
-  seq: 5638
-  stamp:
-    secs: 1457498463
-    nsecs: 196412897
-  frame_id: chair_joy
-axes: [0.0, 0.0]
-buttons: []
----
-   */
 
    vector<JoystickData> joystickVec;
 
@@ -99,7 +88,7 @@ buttons: []
 
         for(int m=0; m<coord1.size(); m++)
         {
-            if(coord1[m] == '[')
+            if(coord1[m] == '['||coord1[m]==',')
             {
                 coord1.erase(m,1);
             }
@@ -113,7 +102,7 @@ buttons: []
             }
         }
 
-        fout<<data.nsecs<<"   "<<coord1<<"   "<<coord2<<endl;
+        fout<<data.secs<<"   "<<coord1<<"   "<<coord2<<endl;
         joystickVec.push_back(data);
 
         i++;
